@@ -12,8 +12,19 @@ function greet() {
 
 
     var welcome = document.getElementById('welcome');
-    welcome.innerHTML = "Hallo, " + name + ", du bist " + age + " Jahre alt";  ;
-    welcome.className = "vip";
+    if (age >=18) {
+        welcome.innerHTML = "Hallo, " + name + "! Du bist volljährig";  
+    }
+    else {
+        welcome.innerHTML = "Hallo, " + name + "! Du bist nicht volljährig";  
+    };
+    
+    if (name == "Klaus") {
+        welcome.className = "vip";
+    }
+    else {
+        welcome.className = "";
+    };
 
 };
 
