@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<title>Grundlagen JavaScript</title>
+	<!-- CSS-Datei einbinden -->
+	<link href="style.css" rel="stylesheet">
+</head>
+<body>
+
+<!-- Eingabefelder: Zahlen -->
+<label>Zahl:
+	<input id="number-1" type="number" min="0" value="0">
+</label>
+<label>Zahl:
+	<input id="number-2" type="number" min="0" value="0">
+</label>
+
+<!-- Button: Ergebnis anzeigen -->
+<button onclick="answer()">Addieren</button>
+<button onclick="answer(true)">Höflich addieren</button>
+
+<!-- Ergebnis -->
+<p id="sum">Summe: 0</p>
+
+<!-- JavaScript-Datei einbinden -->
+<script src="calculate.js"></script>
+
+</body>
+</html>
