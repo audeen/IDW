@@ -11,7 +11,8 @@ function update() {
 	// Alle Listenpunkte einzeln durchgehen
 	for (var i = 0; i < shopping.length; i++) {
 		// Aktuellen Listenpunkt im HTML ausgeben
-		list.innerHTML += '<li>' + shopping[i].name + ' &times; ' + shopping[i].amount + '</li>';
+        list.innerHTML += '<li>' + shopping[i].name + ' &times; ' + shopping[i].amount + '<button onclick="remove('+i+')">'+ 'Entfernen' + '</button>'+'</li>';
+        
 	}
 }
 
@@ -31,14 +32,24 @@ function add() {
 }
 
 // Einkaufsliste definieren
-var shopping = [
-                {name: 'Milch', amount: 1},
-                {name: 'Eier', amount: 6},
-                {name: 'Brot', amount: 2},
-                {name: 'Mehl', amount: 1}
-                ];
-
+var shopping = JSON.parse(localStorage.getItem('data'));
+if (!shopping) {
+    shopping = [];
+}
 
 
 // Darstellung beim Laden der Webseite aktualisieren
 update();
+
+function save() {
+    localStorage.setItem('data', JSON.stringify(shopping));
+    console.log(shopping);
+}
+
+
+
+ function remove(i) {
+    shopping.splice(i, 1);
+    update();
+} 
+
