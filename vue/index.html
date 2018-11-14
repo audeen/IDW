@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+	<meta charset="utf-8">
+	<title>Grundlagen Vue.js</title>
+	<link href="style.css" rel="stylesheet">
+</head>
+<body>
+
+<div id="app">
+	<h1>Kontakte</h1>
+	<h2>Neuen Kontakt erstellen</h2>
+	<label>Name: <input v-model="name" type="text"></label>
+	<label>Alter: <input v-model.number="age" type="number" min="1"></label>
+	<label>E-Mail-Adresse: <input v-model="email" type="email"></label>
+	<button v-on:click="push" v-bind:disabled="name == '' || age == null || email == '' ">Kontakt hinzufügen</button>
+	<h2>Alle Kontaktdaten</h2>
+	<ul v-bind:class="{hidden: name == '' || age == null || email == ''}">
+	<li>Name: {{ name }} </li>
+	<li>Alter: {{ age }} </li>
+	<li>E-Mail-Adresse: {{ email }}</li>
+	</ul>
+
+	<ul>
+		<li v-for="person in contact">Name: {{ person.name }}  ({{person.age}}):{{person.email}}</li>
+	</ul>
+	<h3>Keine Kontaktdaten gefunden</h3>
+</div>
+
+<script src="https://cdn.jsdelivr.net/npm/vue@2.5.17/dist/vue.js"></script>
+<script src="app.js"></script>
+
+</body>
+</html>
