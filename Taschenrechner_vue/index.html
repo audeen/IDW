@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+	<meta charset="utf-8">
+	<title>Grundlagen Vue.js</title>
+	<link href="style.css" rel="stylesheet">
+</head>
+<body>
+
+<div id="app">
+	<h1>Taschenrechner</h1>
+
+	<h2>Eingabe</h2>
+	<label>
+		Zahl 1:
+		<input v-model="number_1" type="number">
+	</label>
+	<label>
+		Rechenmethode:
+		<select>
+			<option v-model="plus" value="plus">&plus;</option>
+			<option v-model="minus"value="minus">&minus;</option>
+			<option v-model="times"value="times">&times;</option>
+			<option v-model="divided"value="divided">&divide;</option>
+		</select>
+	</label>
+	<label>
+		Zahl 2:
+		<input v-model="number_2" type="number">
+	</label>
+	<button v-on:click="calculate">Berechnen</button>
+
+	<h2>Ergebnis</h2>
+	<h3 v-model="result">{{ result }}</h3>
+</div>
+<script src="vue.js"></script>
+<script src="app.js"></script>
+
+</body>
+</html>
