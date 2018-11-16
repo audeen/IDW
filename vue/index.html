@@ -15,16 +15,16 @@
 	<label>E-Mail-Adresse: <input v-model="email" type="email"></label>
 	<button v-on:click="push" v-bind:disabled="name == '' || age == null || email == '' ">Kontakt hinzufügen</button>
 	<h2>Alle Kontaktdaten</h2>
-	<ul v-bind:class="{hidden: name == '' || age == null || email == ''}">
+	<ul v-bind:class="{hidden:name == '' || age == null || email == ''}">
 	<li>Name: {{ name }} </li>
 	<li>Alter: {{ age }} </li>
 	<li>E-Mail-Adresse: {{ email }}</li>
 	</ul>
-
+	<label>Namen suchen: <input v-model="search" type="text"></label>
 	<ul>
-		<li v-for="person in contact">Name: {{ person.name }}  ({{person.age}}):{{person.email}}</li>
+		<li v-for="person in filtered">Name: {{ person.name }}  ({{person.age}}):{{person.email}}</li>
 	</ul>
-	<h3>Keine Kontaktdaten gefunden</h3>
+	<h3 v-bind:class="{hidden: name != '' && age != null && email != ''}">Keine Kontaktdaten gefunden</h3>
 </div>
 
 <script src="https://cdn.jsdelivr.net/npm/vue@2.5.17/dist/vue.js"></script>
