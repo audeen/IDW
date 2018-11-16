@@ -3,7 +3,7 @@ var app = new Vue({
     data: {
         number_1: null,
         number_2: null,
-        plus: +,
+        
 
     },
     computed: {
